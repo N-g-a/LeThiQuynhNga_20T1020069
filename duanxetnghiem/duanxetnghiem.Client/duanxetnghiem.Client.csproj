@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
+    <StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\User\DichVu_user\ThanhToan_user\VNpay.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\Admin\TuvanKH\ListChatTV.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pages\Admin\TuvanKH\ListChatTV.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Append.Blazor.Printing" Version="6.3.0" />
+    <PackageReference Include="BlazorBarcodeScanner.ZXing.JS" Version="1.0.4" />
+    <PackageReference Include="Blazored.TextEditor" Version="1.1.0" />
+    <PackageReference Include="Blazorise" Version="1.5.2" />
+    <PackageReference Include="BootstrapBlazor.BarcodeGenerator" Version="0.1.1" />
+    <PackageReference Include="Guinho.BlazorSelect2" Version="1.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\Admin\GoiXetNghiem\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\User\DichVu_user\ThanhToan_user\VNpay.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\User\DichVu_user\ThanhToan_user\VNpay.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\User\DichVu_user\ThanhToan_user\VNpay.razor" />
+  </ItemGroup>
+
+</Project>

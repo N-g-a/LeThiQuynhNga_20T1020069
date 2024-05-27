@@ -1,0 +1,160 @@
+﻿.container {
+    margin-top: 10px;
+}
+
+.activity-history {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+    .activity-history h3 {
+        margin-bottom: 20px;
+        color: #333333;
+        font-size: 25px;
+    }
+
+    .activity-history ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .activity-history li {
+        font-size: 18px;
+        color: #555555;
+        padding: 5px 0;
+    }
+
+        .activity-history li:first-child {
+            padding-top: 0;
+        }
+
+        .activity-history li:last-child {
+            padding-bottom: 0;
+        }
+
+.patient-info {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+    .patient-info h3 {
+        margin-top: -10px;
+        margin-bottom: 10px;
+        color: #208095;
+        font-size: 2.2rem;
+    }
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        font-weight: bold;
+        color: #333;
+        font-size: 20px;
+    }
+
+    .form-group span {
+        margin-top: 10px;
+        font-size: 20px;
+        color: #555;
+    }
+
+.text-center {
+    margin-top: 40px;
+}
+
+h4 {
+    color: #007bff;
+    font-size: 20px;
+}
+
+.suckhoe {
+    width: 200px;
+    height: 150px;
+}
+
+.btn {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+
+@media screen and (max-width: 767px) {
+    .container {
+        margin-top: 10px; /* Further reduced margin for smaller screens */
+    }
+
+    .activity-history,
+    .patient-info {
+        margin-bottom: 20px; /* Added margin bottom */
+        padding: 15px; /* Further reduced padding */
+    }
+
+        .activity-history h3,
+        .patient-info h3 {
+            font-size: 22px; /* Further reduced font size */
+        }
+
+    .form-group label {
+        font-size: 16px; /* Further reduced font size */
+    }
+
+    .form-group span {
+        font-size: 14px; /* Further reduced font size */
+    }
+
+    .btn {
+        font-size: 14px; /* Further reduced font size */
+        padding: 6px 12px; /* Further reduced padding */
+    }
+
+    .activity-history {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .activity-history h3 {
+            margin-bottom: 20px;
+            color: #333333;
+            font-size: 20px;
+        }
+
+        .activity-history ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .activity-history li {
+            font-size: 14px;
+            color: #555555;
+            padding: 5px 0;
+        }
+
+            .activity-history li:first-child {
+                padding-top: 0;
+            }
+
+            .activity-history li:last-child {
+                padding-bottom: 0;
+            }
+}

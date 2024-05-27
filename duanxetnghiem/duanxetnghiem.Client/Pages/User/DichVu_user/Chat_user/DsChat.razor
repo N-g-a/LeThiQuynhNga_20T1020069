@@ -1,0 +1,101 @@
+﻿@page "/Listchat"
+@inject NavigationManager navigation;
+@attribute [Authorize]
+@rendermode InteractiveAuto
+<h3>Chat Tư Vấn Bác Sĩ</h3>
+<hr />
+<button type="button" class="btn btn-info btn-lg" @onclick="add">Đăng ký</button>
+
+
+<br />
+<br />
+
+<div class="row">
+    <div class="col-md-7">
+        <!-- Danh sách trò chuyện -->
+        @if (unreadRooms.Any())
+        {
+            @foreach (var unreadRoom in unreadRooms)
+            {
+                <div class="chat-item" @onclick="()=>chuyentrang(unreadRoom.RoomId)">
+                    <h5>#Room: @roomNameDictionary[unreadRoom.RoomId]</h5>
+                    <p>@unreadRoom.UnreadChatCount tin nhắn chờ</p>
+                    <button class="btn-view">Xem</button>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Chưa có Room Chat nào đã được tạo</p>
+        }
+    </div>
+    <div class="col-md-5">
+        <img style="width:100%" src="chat.jpg" alt="Chat Image">
+    </div>
+</div>
+
+
+@code {
+    [Inject]
+    protected AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+    public string UserName { get; set; }
+    public User user { get; set; } = new();
+    public List<roomchat> allroom { get; set; } = new();
+    public List<RoomUnreadChatCount> unreadRooms { get; set; } = new List<RoomUnreadChatCount>();
+    public Dictionary<int, string> roomNameDictionary { get; set; } = new Dictionary<int, string>();
+    string err = "";
+    [SupplyParameterFromForm]
+    public string Inputkq { get; set; } = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        UserName = authState.User.Identity.Name;
+        user = await Usertservice.getuserbyemail(UserName);
+        if (user == null)
+        {
+            navigation.NavigateTo("/AddUser");
+        }
+        allroom = await Roomchatservice.getallbyidAsync(user.Id);
+        foreach (var room in allroom)
+        {
+            var dschat = await Chatservice.getallbyidroomAsync(room.Id);
+            var unreadCount = dschat.Count(chat => chat.trangthai == 2);
+            unreadRooms.Add(new RoomUnreadChatCount { RoomId = room.Id, UnreadChatCount = unreadCount });
+            roomNameDictionary.Add(room.Id, room.Name);
+        }
+        // Sắp xếp lại danh sách unreadRooms dựa trên UnreadChatCount giảm dần
+        unreadRooms = unreadRooms.OrderByDescending(room => room.UnreadChatCount).ToList();
+    }
+    public void chuyentrang(int id)
+    {
+        navigation.NavigateTo("/Chat/" + id);
+    }
+    private async Task add()
+    {
+        Inputkq = "Hỗ Trợ Tư vấn";
+        err = "";
+        if (string.IsNullOrEmpty(Inputkq))
+        {
+            err = "Bạn vui lòng đặt tên room để nhanh được hỗ trợ nhé";
+        }
+        else
+        {
+            roomchat room = new roomchat
+                {
+                    Name = Inputkq,
+                    userid = user.Id,
+                    ngaytao = DateTime.Now
+                };
+            var a = await Roomchatservice.addAsync(room);
+            allroom.Add(a);
+            navigation.NavigateTo("/Chat/" + a.Id);
+        }
+    }
+
+    public class RoomUnreadChatCount
+    {
+        public int RoomId { get; set; }
+        public int UnreadChatCount { get; set; }
+    }
+}

@@ -1,0 +1,26 @@
+﻿@page "/sasa"
+@using System.Net.Sockets
+@using System.Net.NetworkInformation
+@using Microsoft.AspNetCore.Http
+@using duanxetnghiem.Client.Pages.User.DichVu_user.ThanhToan_user
+@using duanxetnghiem.Client.Services
+@inject IHttpContextAccessor httpContextAccessor
+@rendermode InteractiveAuto
+@inject NavigationManager Navigation
+@inject ILogger<Test222> Logger
+@inject IHttpContextAccessor HttpContextAccessor
+
+<p>@currentUri</p>
+<p>@baseUri</p>
+@code {
+    string currentUri;
+    string baseUri;
+    protected override void OnInitialized()
+    {
+         currentUri = Navigation.Uri;
+         baseUri = Navigation.BaseUri;
+
+        // Sử dụng currentUri và baseUri ở đây
+    }
+
+}

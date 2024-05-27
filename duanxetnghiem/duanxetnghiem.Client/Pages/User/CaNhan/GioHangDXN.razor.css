@@ -1,0 +1,109 @@
+﻿
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.3rem;
+    font-weight: 600;
+    font-style: normal;
+    color: #007bff;
+    margin: 0.3rem auto;
+}
+
+@media (max-width: 767px) {
+    .table th, .table td {
+        white-space: nowrap; /* Ngăn chặn việc các cột bị tràn xuống dòng mới */
+    }
+
+    /* Thiết lập độ rộng tối thiểu cho các cột */
+    .table th, .table td {
+        min-width: 100px; /* Điều chỉnh độ rộng tối thiểu tùy thuộc vào nhu cầu của bạn */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .total-amount {
+        font-size: 16px;
+    }
+
+    .btn1 {
+        font-size: 1.0rem;
+    }
+}
+
+/* Định dạng cho thông báo modal */
+.modal {
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Định dạng cho nút "Xóa các mục được chọn" và "Chọn tất cả" */
+.mb-3 button {
+    margin-right: 10px;
+}
+
+/* Định dạng cho bảng danh sách đơn xét nghiệm */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .table th,
+    .table td {
+        padding: 10px;
+        text-align: left;
+    }
+
+.thead-dark th {
+    background-color: #343a40;
+    color: white;
+}
+
+/* Định dạng cho checkbox */
+.form-check-input[type="checkbox"] {
+    margin-top: 7px;
+}
+
+/* Định dạng cho tổng tiền */
+.total-amount {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
+/*thanh toán*/
+.btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn1 {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    height: 50px;
+    width: 150px;
+    font-size: 1.4rem;
+    color: white;
+    padding: 7px 5px;
+    text-align: center;
+}
+
+.btn-success1 {
+    background-color: #208095;
+    color: #fff;
+}
+
+    .btn-success1:hover {
+        background-color: #208095; /* Màu mới khi nút được hover */
+    }
